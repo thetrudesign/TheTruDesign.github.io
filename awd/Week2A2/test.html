@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Phone Search</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+ 
+$(document).ready(function() {  
+            $('#search').click(function() {
+                  //send the name to the PHP page using the POST method
+                $.ajax({ 
+                	type: "POST", 
+					url: "testProcess.php", 
+                	dataType: 'json',
+                	data: { 
+                         "age" : $('#age').val(), 
+                         "month" : $('#month').val() 
+                      }, 
+                success: function(data) {
+        var $results = $('#results');
+        if(data.result == "true")
+        {
+             $results.html(data.message),(data.agelimit);
+        } else 
+        {
+             $results.html("Sorry, an error occurred with your request");
+        }
+}
+        }); //end ajax
+            }); //end search click
+}); //end document ready
+
+</script>
+</head>
+<body>
+	
+<p>Enter your age and select the month you're born in:</p>
+<input type="number" max="150" min="1" name="age" id="age" />
+<select id="month">
+    <option value="January">Jan</option>
+    <option value="February">Feb</option>
+    <option value="March">Mar</option>
+	<option value="April">Apr</option>
+	<option value="May">May</option>
+	<option value="June">Jun</option>
+	<option value="July">Jul</option>
+	<option value="August">Aug</option>
+	<option value="September">sep</option>
+	<option value="October">Oct</option>
+	<option value="November">Nov</option>
+	<option value="December">Dec</option>
+</select>
+<input type="submit" name="search" id="search" value="Search"/>	
+	<div id="results"></div>
+	
+	
+</body>
+</html>
+

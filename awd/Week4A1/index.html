@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Tru Week4 A1</title>
+
+<!--Jquery 3.2.1 --->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!--Jquery 3.2.1 --->	
+<!--bootstrap 4.0-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>	
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--bootstrap 4.0-->	
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+         $results = $('#results');
+        $searchFor = $('#searchFor');
+         $suggestions = $('#suggestions');
+        $suggestionsList = $('#suggestionsList');
+
+
+        $(document).ajaxError(function(e, jqxhr, settings, errorThrown) {
+              $results.html('Error occurred. The error returned was <em>' + errorThrown + '</em>');
+        });
+
+        $searchFor.keyup(function() {
+              if($(this).val().length <2) {
+                     $suggestions.hide();
+              } else {
+                     $.ajax({
+                           type: 'POST', 
+                           url: 'get_employees.php', 
+                           dataType: 'json',
+                           data: { 
+                                         'searchterm' : $(this).val()
+                                   },
+                          success: function(data) {  
+if(data.result == "true")
+       {
+              //make sure results are returned
+              if(data.count > 0)
+              {
+                     $suggestionsList.html(''); 
+                                         
+                     $.each(data.employees, function() {
+                      
+                           $suggestionsList.append('<li>' + this.Employee_Name + '</li>');
+                     });
+                                         
+                     $suggestions.show(); 
+              } else {
+                     $suggestions.hide(); 
+              }
+       } else 
+       {
+            
+              $results.html("Sorry, an error occurred with your request: " + data.message);
+       }
+}
+                     }); //end ajax
+              } //end if statement
+}); //end keyup()
+
+	$(document).on('click', '#suggestionsList li', function() {
+		$searchFor.val($(this).text());
+		$suggestions.hide();
+	}); //end on()
+}); //end document.ready()
+</script>
+<style>
+	#suggestionsList li {
+		list-style: none;
+	}
+	#suggestionsList li:hover {
+		background-color:#cce5ff;
+		
+	</style>
+</head>
+<body>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-3"></div>
+	<div class="col-sm-6 mt-5">
+
+<h1>SEARCH EMPLOYEE</h1>
+		<hr/>
+    <div>
+		<h5>GIVE ANY OF THESE NAME A TRY!</h5>
+		<p class="alert alert-primary alert-primary">SUE J. BUSH<br/>  VIRGINIA M. COLLINS<br/> ANNIE J. FISHER<br/>  CHARLES I. BORNSTEIN<br/>  KENDRICK A. HUNT<br/>  ENRIQUE S. BURNS</p>
+      
+        </div>
+    <input id="searchFor" class="form-control" type="text" />
+    <div class="unstyled" id="suggestions">
+		<div class="alert" id="suggestionsList"></div>
+        </div>
+
+<div id="results">
+</div>
+<div class="col-sm-3"></div>
+	</div></div>
+	</div>
+</body>
+
+</html>

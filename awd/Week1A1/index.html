@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Week1A1-Tru Dinh</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+     $(document).ready (function() {          
+       $('#lnkAboutMe').click(function() {
+               $('#loadedContent').load('about.html');
+       });
+       
+       $('#lnkMySite').click(function() {
+               $('#loadedContent').load('contact.html');
+       });
+}); //end document ready
+ 
+</script>
+ 
+	<style>
+		body {
+			font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+			margin: 0;
+	
+		}
+		#container{
+			margin-top:25px;
+			width: 250px;
+			height:auto;
+			margin-left: auto;
+			margin-right:auto;
+		}
+		#container a{
+			font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+			text-decoration: none;
+			color:#0F9793;
+			text-align: center;
+			position: relative;
+			font-size: 14pt;
+		}
+		#container a:hover {
+			color:#2F2933;
+			top:3px;
+		}
+		
+		#container a:active {
+			color:#2f2933;
+		}
+		
+		#lnkAboutMe {
+			
+		}
+		#lnkMySite {
+		margin-left:30px;
+	
+		}
+		#loadedContent {
+			font-size: 12px;
+			line-height: 1.8;
+			color:#DDDDDD;
+			background: #222222;
+		}
+		#loadedContent p {
+			padding-left: 18px;
+			padding-righT: 18px;
+			padding-bottom: 18px;
+			max-width: 500px;
+			margin-left:auto;
+			margin-right:auto;
+			text-align: center;
+		}
+		h3 {
+			position: relative;
+			top:13px;
+			padding-left:18px;
+			text-align: center;
+		}
+		h4 a{
+			margin: 25px;
+			padding: 25px;
+			color:#DDDDDD;
+			text-decoration: none;
+		}
+		h4 {
+			font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+			text-align: center;
+			position: relative;
+			font-size: 14pt;
+		}
+	</style>
+	
+</head>
+<body>
+<div id="container">
+    <a href="javascript:void(0)" id="lnkAboutMe">ABOUT ME</a>
+     <a href="javascript:void(0)" id="lnkMySite">MY WEBSITE</a>
+     
+</div>
+	<div id="loadedContent"></div>
+</body>
+</html>

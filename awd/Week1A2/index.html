@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Contact</title>
+	
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"> </script>
+	
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#contact').submit(function() {
+      if($('#contact').valid()) {
+            var queryString = $('#contact').serialize();
+            $.post('contact.php', queryString, processResults);
+            return false; //do not submit the form
+      }return false;
+      });
+		
+		function processResults(data, textStatus) {
+			if(textStatus ==='success')
+				{
+					$('#success').text(data);
+					$('#success').fadeIn('slow');
+					$('#contact').hide();
+				}
+		}
+		
+		});
+	</script>
+	
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+	<div id="container">
+	<form id="contact" name="contactMe" action="contact.php" method="post">
+	<legend>Contact Me</legend>
+	<p>Name:  <input type="text" name="name" id="name" class="required"></p>
+	<p>Email:  <input type="email" name="email" id="email" class="required email"/></p>
+	<p>Phone:<input type="tel" name="phone" minlength="10" id="phone" class="required"></p>
+	<p>Message:
+		<textarea id="message" name="message" row="5" cols="30" class="required"></textarea>
+		</p>
+	  <p>
+		<input type="submit" id="submit" name="submit" value="send"/>
+
+	</p>
+	</form>
+		<div id="success"></div>
+	</div>
+</body>
+	
+</html>

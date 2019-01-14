@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Phone Search</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+ 
+$(document).ready(function() {  
+            $('#search').click(function() {
+                  //send the name to the PHP page using the POST method
+                  $.ajax({
+                              type: "POST",
+                              url: "process.php",
+                              data: {
+        					"name" : $('#name').val(),
+        				"department" : $('#department').val()
+							  								},
+                              success: function(data) {
+                                          var $results = $('#results');
+                                          $results.html(data);
+                              }
+                  }); //end ajax
+            }); //end search click
+}); //end document ready
+
+</script>
+</head>
+<body>
+	
+<p>Enter name and department: </p>
+<input type="text" name="name" id="name"/>
+<select id="department">
+         <option value="">Please choose</option>
+         <option value="Customer Service">Customer Service</option>
+         <option value="Sales">Sales</option>
+<option value="Information Technology">Information Technology</option>
+</select>
+<input type="submit" name="search" id="search" value="Search"/>	
+	
+	
+</body>
+</html>

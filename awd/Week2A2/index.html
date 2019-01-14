@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Tru Dinh Week 2 Assignment 2</title>
+<!--Jquery 3.2.1 --->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!--Jquery 3.2.1 --->	
+<!--bootstrap 4.0-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>	
+<!--bootstrap 4.0-->	
+	
+
+<script type="text/javascript">
+ 
+$(document).ready(function() {  
+            $('#search').click(function() {
+                  //send the name to the PHP page using the POST method
+                $.ajax({ 
+                	type: "POST", 
+					url: "process2.php", 
+                	dataType: 'json',
+                	data: { 
+                         "age" : $('#age').val(), 
+                         "month" : $('#month').val() 
+                      }, 
+                success: function(data) {
+        var $results = $('#results');
+        if(data.result == "true")
+        {
+			$('#results').fadeIn('slow');
+             $results.html(data.message);
+        } else 
+        {
+             $results.html("Sorry, an error occurred with your request");
+        }
+}
+        }); //end ajax
+            }); //end search click
+
+}); //end document ready
+
+</script>
+<style>
+	#results {
+	display: none;
+	}</style>
+	</head>
+<body>
+	<br/>
+	<br/>
+<div class="container">
+	<div class="row">
+	<div class="col-sm-3"></div>
+	<div class="col-sm-6">
+<p>Enter your age and select the month you're born in:</p>
+<input type="number" max="150" min="1" name="age" id="age" class="form-control" />
+	<br/>
+<select id="month" class="form-control">
+    <option value="January">Jan</option>
+    <option value="February">Feb</option>
+    <option value="March">Mar</option>
+	<option value="April">Apr</option>
+	<option value="May">May</option>
+	<option value="June">Jun</option>
+	<option value="July">Jul</option>
+	<option value="August">Aug</option>
+	<option value="September">sep</option>
+	<option value="October">Oct</option>
+	<option value="November">Nov</option>
+	<option value="December">Dec</option>
+</select>
+	<br/>
+<input type="submit" name="search" id="search" value="Search" class="form-control btn btn-primary"/>	
+		<br/>
+		<br/>
+		<br/>
+	  <div class="alert alert-primary alert-primary" id="results">
+  </div>
+	</div>
+	<div class="col-sm-3"></div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+
+<url>
+  <loc>http://thetrudesign.com/WebStandard/</loc>
+  <lastmod>2018-04-25T03:25:49+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>http://thetrudesign.com/WebStandard/index.html</loc>
+  <lastmod>2018-04-25T03:25:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://thetrudesign.com/WebStandard/about.html</loc>
+  <lastmod>2018-04-25T03:25:46+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://thetrudesign.com/WebStandard/adopt.html</loc>
+  <lastmod>2018-04-25T03:25:57+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://thetrudesign.com/WebStandard/events.html</loc>
+  <lastmod>2018-04-25T03:25:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://thetrudesign.com/WebStandard/involved.html</loc>
+  <lastmod>2018-04-25T03:25:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://thetrudesign.com/WebStandard/resources.html</loc>
+  <lastmod>2018-04-25T03:25:59+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://thetrudesign.com/WebStandard/contact.html</loc>
+  <lastmod>2018-04-25T03:25:59+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://thetrudesign.com/WebStandard/2017_Summer_Scoop.pdf</loc>
+  <lastmod>2018-04-25T03:26:03+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://thetrudesign.com/WebStandard/volunteer_app.pdf</loc>
+  <lastmod>2018-04-25T03:26:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>

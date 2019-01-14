@@ -1,0 +1,100 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	margin:0;
+	padding:0;
+	background:#0f0f0f;
+	}
+       #success {
+		   display:none;
+       z-index: 2;
+       width:200px;
+       background-color: #10B1C9;
+		   color:#0F0F0F;
+       font-weight:bold;
+       text-align:center;
+       padding: 15px;
+		   position: absolute;
+		   top:25%;
+		   left:50%;
+		   margin-left:-100px;
+		   font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";;
+		   
+		   
+}
+#contact {
+	width:400px;
+	height:auto;
+	min-height: 350px;
+	background: #10b1c9;
+	margin-left: auto;
+	margin-right:auto;
+	margin-top:10%;
+	
+	
+}
+
+input {
+	width:250px;
+	float:right;
+	margin-left:10px;
+	border:solid 1px #c1eef5;
+	
+}
+textarea {
+	float:right;
+	width:250px;
+	height:80px;
+	margin-left:10px;
+	border:solid 1px #c1eef5;
+	
+}
+
+#submit {
+	position: relative;
+	top:20px;
+	float: left;
+	width:360px;
+	margin-left:20px;
+	color:#1c1c1c;
+	background: #ffffff;
+}
+legend {
+	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+	font-size: 1.4em;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	background-color:#c1eef5;
+	color:#0f0f0f;
+	width:400px;
+	padding-top: 7px;
+	height:30px;
+	margin-bottom: 20px;
+	
+}
+#contact p {
+	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+	color: #1C1C1C;
+	text-align: right;
+	padding-right:20px;
+	float:right;
+	position: relative;
+	margin-top:0;
+	padding-top: 0;
+	
+}
+label.error {
+	float: right;
+	padding-top:3px;
+	color:orange;
+	clear:both;
+	font-size: 10pt;
+	position: relative;
+	margin-bottom: -10px;
+}
+.required {
+	padding: 0;
+	
+}
