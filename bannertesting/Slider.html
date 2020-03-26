@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+body {font-family: open-san, sans-serif; margin:0}
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1550px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #ffffff;
+  font-size: 14px;
+  padding: 2px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+  text-shadow: 2px 2px 4px #000000;
+}
+	.offerDetails {
+		color: white;
+		font-weight: 600;
+		
+		
+	}
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+	
+	
+	.mobileHero{
+   display: none;
+}
+
+ 
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 500px) {
+  .prev, .next,.text {font-size: 14px}
+	
+   .desktopHero{
+     display: none;
+   }
+
+   .mobileHero{
+     display: block;
+   }
+}
+
+
+@media (min-width: 500px) and (max-width: 900px){
+	.text {font-size: 10pt; padding: 2px 12px;
+  position: absolute;
+  bottom: 4px;}
+	
+	}
+</style>
+</head>
+<body>
+
+<div class="slideshow-container">
+
+<div class="mySlides fade">
+<a href="#"><img src="https://github.com/thetrudesign/TheTruDesign.github.io/blob/master/bannertesting/0211_Sport%20Therapy_homepg_desktop.jpg?raw=true" class="desktopHero" style="width:100%">
+<img src="https://github.com/thetrudesign/TheTruDesign.github.io/blob/master/bannertesting/0211_Sport%20Therapy_homepg_mobile.jpg?raw=true" class="mobileHero" style="width:100%"></a>
+  <div class="text">This offer expires March 31, 2020 at 11:59PM ET. <a class="offerDetails" href="#">See full offer details</a></div>
+</div>
+
+<div class="mySlides fade">
+<a href="#"><img src="https://github.com/thetrudesign/TheTruDesign.github.io/blob/master/bannertesting/0205_electrotherapy_homepage_desktop.jpg?raw=true" class="desktopHero" style="width:100%">
+	<img src="https://github.com/thetrudesign/TheTruDesign.github.io/blob/master/bannertesting/0205_electrotherapy_homepage_mobile.jpg?raw=true" class="mobileHero" style="width:100%"></a>
+ <div class="text">This offer expires March 31, 2020 at 11:59PM ET. <a class="offerDetails" href="#">See full offer details</a></div>
+</div>
+
+<div class="mySlides fade">
+<a href="#"><img src="https://github.com/thetrudesign/TheTruDesign.github.io/blob/master/bannertesting/practitionerpicks_desktop.jpg?raw=true" class="desktopHero" style="width:100%">
+	<img src="https://github.com/thetrudesign/TheTruDesign.github.io/blob/master/bannertesting/practitionerpicks_mobile.jpg?raw=true" class="mobileHero" style="width:100%"></a>
+ <div class="text">This offer expires March 31, 2020 at 11:59PM ET. <a class="offerDetails" href="#">See full offer details</a></div>
+</div>
+
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+</div>
+
+<script>
+var slideIndex = 1;
+var timer = null;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  clearTimeout(timer);
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  clearTimeout(timer);
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n==undefined){n = ++slideIndex}
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  timer = setTimeout(showSlides, 10000);
+} 
+</script>
+
+</body>
+</html> 
